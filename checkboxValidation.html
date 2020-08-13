@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBox Validation</title>
+</head>
+<body>
+    <h1 style="color: green; text-align: center;">CHECKBOX VALIDATION IN JAVASCRIPT</h1>
+    <h1>THAPA TECHNICAL</h1>
+
+    <form name="forms" onsubmit="return myFun()">
+        <input type="checkbox" name="container" value="Like">LIKE</input>
+        <input type="checkbox" name="container" value="Share">SHARE</input>
+        <input type="checkbox" name="container" value="Subscribe">SUBSCRIBE</input>
+        <div><p id="messages" style="color: red; font-size: 20px;"></p></div>
+        <input type="submit" value="SUBMIT">
+    </form>
+    <script>
+        function myFun() {
+            var a = document.forms.container;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i].checked == true) {
+                    return true;
+                }
+                
+            }
+            document.getElementById("messages").innerHTML = "** Please Select Anyone";
+            return false;
+        }
+    </script>
+</body>
+</html>

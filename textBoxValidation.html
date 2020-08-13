@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextBox Validation</title>
+</head>
+<body>
+    <!-- username:
+    1. Empty 
+    2. 3 
+    3. 20 
+    4. regular expression  -->
+
+    <form action="" onsubmit="return myFun()">
+       UserName: <input type="text" id="User_Name">
+       <span id="messages"></span>
+       <br><br>
+       <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function myFun(params) {
+            var correct_way = /^[A-Za-z]+$/;
+            var a = document.getElementById("User_Name").value;
+
+            if (a == "") {
+                document.getElementById("messages").innerHTML = "** Please fill username";
+                return false;
+            }
+
+            if (a.length < 3) {
+                document.getElementById("messages").innerHTML = "** Username must be 3 character";
+                return false;
+            }
+
+            if (a.length > 20) {
+                document.getElementById("messages").innerHTML = "** Username must be less then 20 character";
+                return false;
+            }
+
+            if (a.match(correct_way)){
+                true;
+            }         
+            else {
+                document.getElementById("messages").innerHTML = "** Only Alphabets are allowed";
+                return false;
+            }
+
+        }
+    </script>
+</body>
+</html>
